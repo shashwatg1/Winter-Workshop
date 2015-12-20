@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "Accelero", "Accelero\Accelero.cproj", "{68D1F615-2467-4629-AEEC-57E2E05DE41E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68D1F615-2467-4629-AEEC-57E2E05DE41E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{68D1F615-2467-4629-AEEC-57E2E05DE41E}.Debug|AVR.Build.0 = Debug|AVR
+		{68D1F615-2467-4629-AEEC-57E2E05DE41E}.Release|AVR.ActiveCfg = Release|AVR
+		{68D1F615-2467-4629-AEEC-57E2E05DE41E}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

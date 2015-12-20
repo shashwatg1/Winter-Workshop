@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "MotorTurn", "MotorTurn\MotorTurn.cproj", "{AED146A3-10F2-43C7-91D2-A65BAEE5467E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED146A3-10F2-43C7-91D2-A65BAEE5467E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{AED146A3-10F2-43C7-91D2-A65BAEE5467E}.Debug|AVR.Build.0 = Debug|AVR
+		{AED146A3-10F2-43C7-91D2-A65BAEE5467E}.Release|AVR.ActiveCfg = Release|AVR
+		{AED146A3-10F2-43C7-91D2-A65BAEE5467E}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

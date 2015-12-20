@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "PWM", "PWM\PWM.cproj", "{217CD04A-1C7E-4F73-AB34-7230C0208B86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{217CD04A-1C7E-4F73-AB34-7230C0208B86}.Debug|AVR.ActiveCfg = Debug|AVR
+		{217CD04A-1C7E-4F73-AB34-7230C0208B86}.Debug|AVR.Build.0 = Debug|AVR
+		{217CD04A-1C7E-4F73-AB34-7230C0208B86}.Release|AVR.ActiveCfg = Release|AVR
+		{217CD04A-1C7E-4F73-AB34-7230C0208B86}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

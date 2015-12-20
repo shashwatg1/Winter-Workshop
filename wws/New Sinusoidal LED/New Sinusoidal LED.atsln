@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "New Sinusoidal LED", "New Sinusoidal LED\New Sinusoidal LED.cproj", "{9CF1D337-FCA2-4DD8-A524-A593775A5F78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CF1D337-FCA2-4DD8-A524-A593775A5F78}.Debug|AVR.ActiveCfg = Debug|AVR
+		{9CF1D337-FCA2-4DD8-A524-A593775A5F78}.Debug|AVR.Build.0 = Debug|AVR
+		{9CF1D337-FCA2-4DD8-A524-A593775A5F78}.Release|AVR.ActiveCfg = Release|AVR
+		{9CF1D337-FCA2-4DD8-A524-A593775A5F78}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

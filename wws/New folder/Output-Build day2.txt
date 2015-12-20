@@ -1,0 +1,35 @@
+﻿------ Build started: Project: GccApplication1, Configuration: Debug AVR ------
+Build started.
+Project "GccApplication1.cproj" (default targets):
+Target "PreBuildEvent" skipped, due to false condition; ('$(PreBuildEvent)'!='') was evaluated as (''!='').
+Target "CoreBuild" in file "C:\Program Files\Atmel\Atmel Studio 6.1\Vs\Compiler.targets" from project "C:\Users\mandawa\Documents\Atmel Studio\6.1\GccApplication1\GccApplication1\GccApplication1.cproj" (target "Build" depends on it):
+	Task "RunCompilerTask"
+		C:\Program Files\Atmel\Atmel Studio 6.1\shellUtils\make.exe all 
+		Building file: .././GccApplication1.c
+		Invoking: AVR/GNU C Compiler : 3.4.2
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-gcc.exe"  -funsigned-char -funsigned-bitfields -DDEBUG  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega16a -c -std=gnu99 -MD -MP -MF "GccApplication1.d" -MT"GccApplication1.d" -MT"GccApplication1.o"   -o "GccApplication1.o" ".././GccApplication1.c"
+		Finished building: .././GccApplication1.c
+		Building target: GccApplication1.elf
+		Invoking: AVR/GNU Linker : 3.4.2
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-gcc.exe" -o GccApplication1.elf  GccApplication1.o   -Wl,-Map="GccApplication1.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega16a 
+		Finished building target: GccApplication1.elf
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  "GccApplication1.elf" "GccApplication1.hex"
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "GccApplication1.elf" "GccApplication1.eep" || exit 0
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "GccApplication1.elf" > "GccApplication1.lss"
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature  "GccApplication1.elf" "GccApplication1.srec"
+		"C:\Program Files\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.2.1002\avr8-gnu-toolchain\bin\avr-size.exe" "GccApplication1.elf"
+		   text	   data	    bss	    dec	    hex	filename
+		    316	      0	      0	    316	    13c	GccApplication1.elf
+	Done executing task "RunCompilerTask".
+	Task "RunOutputFileVerifyTask"
+				Program Memory Usage 	:	316 bytes   1.9 % Full
+				Data Memory Usage 		:	0 bytes   0.0 % Full
+	Done executing task "RunOutputFileVerifyTask".
+Done building target "CoreBuild" in project "GccApplication1.cproj".
+Target "PostBuildEvent" skipped, due to false condition; ('$(PostBuildEvent)' != '') was evaluated as ('' != '').
+Target "Build" in file "C:\Program Files\Atmel\Atmel Studio 6.1\Vs\Avr.common.targets" from project "C:\Users\mandawa\Documents\Atmel Studio\6.1\GccApplication1\GccApplication1\GccApplication1.cproj" (entry point):
+Done building target "Build" in project "GccApplication1.cproj".
+Done building project "GccApplication1.cproj".
+
+Build succeeded.
+========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========

@@ -1,0 +1,191 @@
+
+PWM + ADC.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000de  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000030  00000000  00000000  00000132  2**0
+                  CONTENTS, READONLY
+  2 .debug_aranges 00000020  00000000  00000000  00000162  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000000aa  00000000  00000000  00000182  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 0000006b  00000000  00000000  0000022c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000000cb  00000000  00000000  00000297  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000024  00000000  00000000  00000364  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000138  00000000  00000000  00000388  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    00000058  00000000  00000000  000004c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_ranges 00000010  00000000  00000000  00000518  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   8:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+   c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 6d 00 	jmp	0xda	; 0xda <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+#include <avr/io.h>
+#define setit ~0
+#define setit1 0
+int main(void)
+{
+	DDRB = setit;
+  6c:	8f ef       	ldi	r24, 0xFF	; 255
+  6e:	87 bb       	out	0x17, r24	; 23
+	DDRA = setit1;
+  70:	1a ba       	out	0x1a, r1	; 26
+	PORTB = setit1;
+  72:	18 ba       	out	0x18, r1	; 24
+	ADCSRA = (1<<ADEN)|(1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2);
+  74:	87 e8       	ldi	r24, 0x87	; 135
+  76:	86 b9       	out	0x06, r24	; 6
+	ADMUX = (1<<REFS0);
+  78:	80 e4       	ldi	r24, 0x40	; 64
+  7a:	87 b9       	out	0x07, r24	; 7
+			OCR0 = 153;
+		}
+		else
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+			OCR0 = 204;
+  7c:	5c ec       	ldi	r21, 0xCC	; 204
+			OCR0 = 102;
+		}
+		else if (a>205)
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+			OCR0 = 153;
+  7e:	49 e9       	ldi	r20, 0x99	; 153
+			OCR0 = 26;
+		}
+		else if (a>410)
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+			OCR0 = 102;
+  80:	36 e6       	ldi	r19, 0x66	; 102
+			OCR0 = 0;
+		}
+		else if (a>615)
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+			OCR0 = 26;
+  82:	2a e1       	ldi	r18, 0x1A	; 26
+	ADCSRA = (1<<ADEN)|(1<<ADPS0)|(1<<ADPS1)|(1<<ADPS2);
+	ADMUX = (1<<REFS0);
+	while(1)
+	{
+		//TODO:: Please write your application code
+		ADCSRA |=(1<<ADSC);
+  84:	36 9a       	sbi	0x06, 6	; 6
+		int a = ADC;
+  86:	84 b1       	in	r24, 0x04	; 4
+  88:	95 b1       	in	r25, 0x05	; 5
+		if (a>820)
+  8a:	85 33       	cpi	r24, 0x35	; 53
+  8c:	63 e0       	ldi	r22, 0x03	; 3
+  8e:	96 07       	cpc	r25, r22
+  90:	2c f0       	brlt	.+10     	; 0x9c <main+0x30>
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+  92:	83 b7       	in	r24, 0x33	; 51
+  94:	8d 66       	ori	r24, 0x6D	; 109
+  96:	83 bf       	out	0x33, r24	; 51
+			OCR0 = 0;
+  98:	1c be       	out	0x3c, r1	; 60
+  9a:	f4 cf       	rjmp	.-24     	; 0x84 <main+0x18>
+		}
+		else if (a>615)
+  9c:	88 36       	cpi	r24, 0x68	; 104
+  9e:	62 e0       	ldi	r22, 0x02	; 2
+  a0:	96 07       	cpc	r25, r22
+  a2:	2c f0       	brlt	.+10     	; 0xae <main+0x42>
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+  a4:	83 b7       	in	r24, 0x33	; 51
+  a6:	8d 66       	ori	r24, 0x6D	; 109
+  a8:	83 bf       	out	0x33, r24	; 51
+			OCR0 = 26;
+  aa:	2c bf       	out	0x3c, r18	; 60
+  ac:	eb cf       	rjmp	.-42     	; 0x84 <main+0x18>
+		}
+		else if (a>410)
+  ae:	8b 39       	cpi	r24, 0x9B	; 155
+  b0:	61 e0       	ldi	r22, 0x01	; 1
+  b2:	96 07       	cpc	r25, r22
+  b4:	2c f0       	brlt	.+10     	; 0xc0 <main+0x54>
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+  b6:	83 b7       	in	r24, 0x33	; 51
+  b8:	8d 66       	ori	r24, 0x6D	; 109
+  ba:	83 bf       	out	0x33, r24	; 51
+			OCR0 = 102;
+  bc:	3c bf       	out	0x3c, r19	; 60
+  be:	e2 cf       	rjmp	.-60     	; 0x84 <main+0x18>
+		}
+		else if (a>205)
+  c0:	8e 3c       	cpi	r24, 0xCE	; 206
+  c2:	91 05       	cpc	r25, r1
+  c4:	2c f0       	brlt	.+10     	; 0xd0 <main+0x64>
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+  c6:	83 b7       	in	r24, 0x33	; 51
+  c8:	8d 66       	ori	r24, 0x6D	; 109
+  ca:	83 bf       	out	0x33, r24	; 51
+			OCR0 = 153;
+  cc:	4c bf       	out	0x3c, r20	; 60
+  ce:	da cf       	rjmp	.-76     	; 0x84 <main+0x18>
+		}
+		else
+		{
+			TCCR0 |= (1<<WGM00)|(1<<COM01)|(1<<WGM01)|(1<<CS00)|(1<<CS02);
+  d0:	83 b7       	in	r24, 0x33	; 51
+  d2:	8d 66       	ori	r24, 0x6D	; 109
+  d4:	83 bf       	out	0x33, r24	; 51
+			OCR0 = 204;
+  d6:	5c bf       	out	0x3c, r21	; 60
+  d8:	d5 cf       	rjmp	.-86     	; 0x84 <main+0x18>
+
+000000da <_exit>:
+  da:	f8 94       	cli
+
+000000dc <__stop_program>:
+  dc:	ff cf       	rjmp	.-2      	; 0xdc <__stop_program>

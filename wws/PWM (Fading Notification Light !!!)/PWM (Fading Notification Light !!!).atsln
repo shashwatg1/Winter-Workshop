@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "PWM (Fading Notification Light !!!)", "PWM (Fading Notification Light !!!)\PWM (Fading Notification Light !!!).cproj", "{8A97C491-9DA9-4AC4-A300-07C12D8E68E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A97C491-9DA9-4AC4-A300-07C12D8E68E6}.Debug|AVR.ActiveCfg = Debug|AVR
+		{8A97C491-9DA9-4AC4-A300-07C12D8E68E6}.Debug|AVR.Build.0 = Debug|AVR
+		{8A97C491-9DA9-4AC4-A300-07C12D8E68E6}.Release|AVR.ActiveCfg = Release|AVR
+		{8A97C491-9DA9-4AC4-A300-07C12D8E68E6}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
