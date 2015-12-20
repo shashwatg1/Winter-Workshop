@@ -1,0 +1,5 @@
+Use LCD!!!
+
+Without LCD it wouldn't work.
+
+Fast PWM with ICR1 as TOP is used.

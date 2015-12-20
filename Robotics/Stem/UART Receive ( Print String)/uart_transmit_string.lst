@@ -1,0 +1,152 @@
+   1               		.file	"uart_transmit_string.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	print
+  18               	print:
+  19               	.LFB7:
+  20               	.LM1:
+  21               	.LVL0:
+  22               	/* prologue: function */
+  23               	/* frame size = 0 */
+  24               	.LM2:
+  25 0000 1092 0000 		sts counter,__zero_reg__
+  26               	.LBB12:
+  27               	.LBB13:
+  28               	.LBB14:
+  29               	.LBB15:
+  30               	.LM3:
+  31 0004 60E9      		ldi r22,lo8(400)
+  32 0006 71E0      		ldi r23,hi8(400)
+  33 0008 00C0      		rjmp .L2
+  34               	.LVL1:
+  35               	.L4:
+  36               	.LBE15:
+  37               	.LBE14:
+  38               	.LBE13:
+  39               	.LBE12:
+  40               	.LM4:
+  41 000a ECB9      		out 44-32,r30
+  42 000c 28EC      		ldi r18,lo8(200)
+  43 000e 30E0      		ldi r19,hi8(200)
+  44               	.L3:
+  45               	.LBB19:
+  46               	.LBB18:
+  47               	.LBB17:
+  48               	.LBB16:
+  49               	.LM5:
+  50 0010 FB01      		movw r30,r22
+  51               	.LVL2:
+  52               	/* #APP */
+  53               	 ;  105 "c:/winavr-20090313/lib/gcc/../../avr/include/util/delay_basic.h" 1
+  54 0012 3197      		1: sbiw r30,1
+  55 0014 01F4      		brne 1b
+  56               	 ;  0 "" 2
+  57               	/* #NOAPP */
+  58               	.LBE16:
+  59               	.LBE17:
+  60               	.LM6:
+  61 0016 2150      		subi r18,lo8(-(-1))
+  62 0018 3040      		sbci r19,hi8(-(-1))
+  63               	.LM7:
+  64 001a 01F4      		brne .L3
+  65               	.LBE18:
+  66               	.LBE19:
+  67               	.LM8:
+  68 001c 4F5F      		subi r20,lo8(-(1))
+  69 001e 4093 0000 		sts counter,r20
+  70               	.L2:
+  71               	.LM9:
+  72 0022 4091 0000 		lds r20,counter
+  73 0026 FC01      		movw r30,r24
+  74               	.LVL3:
+  75 0028 E40F      		add r30,r20
+  76 002a F11D      		adc r31,__zero_reg__
+  77 002c E081      		ld r30,Z
+  78 002e EE23      		tst r30
+  79 0030 01F4      		brne .L4
+  80               	/* epilogue start */
+  81               	.LM10:
+  82 0032 0895      		ret
+  83               	.LFE7:
+  85               		.data
+  86               	.LC0:
+  87 0000 4368 6F63 		.string	"Chocalates \r\n"
+  87      616C 6174 
+  87      6573 200D 
+  87      0A00 
+  88               	.LC1:
+  89 000e 5061 7374 		.string	"Pastries \r\n"
+  89      7269 6573 
+  89      200D 0A00 
+  90               		.text
+  91               	.global	main
+  93               	main:
+  94               	.LFB6:
+  95               	.LM11:
+  96               	/* prologue: function */
+  97               	/* frame size = 0 */
+  98               	.LM12:
+  99 0034 1BB8      		out 43-32,__zero_reg__
+ 100               	.LM13:
+ 101 0036 88E9      		ldi r24,lo8(-104)
+ 102 0038 8AB9      		out 42-32,r24
+ 103               	.LM14:
+ 104 003a 86E8      		ldi r24,lo8(-122)
+ 105 003c 80BD      		out 64-32,r24
+ 106               	.LM15:
+ 107 003e 87E6      		ldi r24,lo8(103)
+ 108 0040 89B9      		out 41-32,r24
+ 109               	.LM16:
+ 110 0042 10BC      		out 64-32,__zero_reg__
+ 111               	.LM17:
+ 112 0044 80EF      		ldi r24,lo8(-16)
+ 113 0046 81BB      		out 49-32,r24
+ 114               	.LM18:
+ 115 0048 8FE0      		ldi r24,lo8(15)
+ 116 004a 82BB      		out 50-32,r24
+ 117               	.LM19:
+ 118               	/* #APP */
+ 119               	 ;  18 "uart_transmit_string.c" 1
+ 120 004c 7894      		sei
+ 121               	 ;  0 "" 2
+ 122               	/* #NOAPP */
+ 123               	.L13:
+ 124               	.LM20:
+ 125 004e 8299      		sbic 48-32,2
+ 126 0050 00C0      		rjmp .L8
+ 127               	.LM21:
+ 128 0052 80E0      		ldi r24,lo8(.LC0)
+ 129 0054 90E0      		ldi r25,hi8(.LC0)
+ 130 0056 0E94 0000 		call print
+ 131               	.L8:
+ 132               	.LM22:
+ 133 005a 8399      		sbic 48-32,3
+ 134 005c 00C0      		rjmp .L13
+ 135               	.LM23:
+ 136 005e 80E0      		ldi r24,lo8(.LC1)
+ 137 0060 90E0      		ldi r25,hi8(.LC1)
+ 138 0062 0E94 0000 		call print
+ 139 0066 00C0      		rjmp .L13
+ 140               	.LFE6:
+ 142               		.comm counter,1,1
+ 175               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart_transmit_string.c
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:2      *ABS*:0000003f __SREG__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:3      *ABS*:0000003e __SP_H__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:4      *ABS*:0000003d __SP_L__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:5      *ABS*:00000034 __CCP__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:18     .text:00000000 print
+                            *COM*:00000001 counter
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccOjTbU4.s:93     .text:00000034 main
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss

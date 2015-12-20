@@ -1,0 +1,123 @@
+   1               		.file	"rxpolling.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	uart_init
+  18               	uart_init:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 87E6      		ldi r24,lo8(103)
+  25 0002 89B9      		out 41-32,r24
+  26               	.LM3:
+  27 0004 10BC      		out 64-32,__zero_reg__
+  28               	.LM4:
+  29 0006 88E1      		ldi r24,lo8(24)
+  30 0008 8AB9      		out 42-32,r24
+  31               	.LM5:
+  32 000a 86E8      		ldi r24,lo8(-122)
+  33 000c 80BD      		out 64-32,r24
+  34               	/* epilogue start */
+  35               	.LM6:
+  36 000e 0895      		ret
+  37               	.LFE6:
+  39               	.global	rxchar
+  41               	rxchar:
+  42               	.LFB7:
+  43               	.LM7:
+  44               	/* prologue: function */
+  45               	/* frame size = 0 */
+  46               	.L4:
+  47               	.LM8:
+  48 0010 5F9B      		sbis 43-32,7
+  49 0012 00C0      		rjmp .L4
+  50               	.LM9:
+  51 0014 8CB1      		in r24,44-32
+  52               	/* epilogue start */
+  53               	.LM10:
+  54 0016 0895      		ret
+  55               	.LFE7:
+  57               	.global	txchar
+  59               	txchar:
+  60               	.LFB8:
+  61               	.LM11:
+  62               	/* prologue: function */
+  63               	/* frame size = 0 */
+  64               	.LVL0:
+  65               	.L8:
+  66               	.LM12:
+  67 0018 5D9B      		sbis 43-32,5
+  68 001a 00C0      		rjmp .L8
+  69               	.LM13:
+  70 001c 8CB9      		out 44-32,r24
+  71               	/* epilogue start */
+  72               	.LM14:
+  73 001e 0895      		ret
+  74               	.LFE8:
+  76               	.global	main
+  78               	main:
+  79               	.LFB9:
+  80               	.LM15:
+  81               	/* prologue: function */
+  82               	/* frame size = 0 */
+  83               	.LBB8:
+  84               	.LBB9:
+  85               	.LM16:
+  86 0020 87E6      		ldi r24,lo8(103)
+  87 0022 89B9      		out 41-32,r24
+  88               	.LM17:
+  89 0024 10BC      		out 64-32,__zero_reg__
+  90               	.LM18:
+  91 0026 88E1      		ldi r24,lo8(24)
+  92 0028 8AB9      		out 42-32,r24
+  93               	.LM19:
+  94 002a 86E8      		ldi r24,lo8(-122)
+  95 002c 80BD      		out 64-32,r24
+  96               	.L18:
+  97               	.LBE9:
+  98               	.LBE8:
+  99               	.LBB10:
+ 100               	.LBB11:
+ 101               	.LM20:
+ 102 002e 5F9B      		sbis 43-32,7
+ 103 0030 00C0      		rjmp .L18
+ 104               	.LM21:
+ 105 0032 8CB1      		in r24,44-32
+ 106               	.L13:
+ 107               	.LBE11:
+ 108               	.LBE10:
+ 109               	.LBB12:
+ 110               	.LBB13:
+ 111               	.LM22:
+ 112 0034 5D9B      		sbis 43-32,5
+ 113 0036 00C0      		rjmp .L13
+ 114               	.LM23:
+ 115 0038 8CB9      		out 44-32,r24
+ 116 003a 00C0      		rjmp .L18
+ 117               	.LBE13:
+ 118               	.LBE12:
+ 119               	.LFE9:
+ 121               		.comm recv,1,1
+ 170               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 rxpolling.c
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:2      *ABS*:0000003f __SREG__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:3      *ABS*:0000003e __SP_H__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:4      *ABS*:0000003d __SP_L__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:5      *ABS*:00000034 __CCP__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:18     .text:00000000 uart_init
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:41     .text:00000010 rxchar
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:59     .text:00000018 txchar
+C:\Users\ROBOTE~1\AppData\Local\Temp/ccgxZJPV.s:78     .text:00000020 main
+                            *COM*:00000001 recv
+
+UNDEFINED SYMBOLS
+__do_clear_bss
